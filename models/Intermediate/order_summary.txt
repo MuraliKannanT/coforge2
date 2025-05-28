@@ -1,0 +1,21 @@
+with orders as (
+   select * from {{ ref('stg_orders')}}
+),
+ 
+final as (
+   select
+       status_code,
+       sum(case when priority_code = '1-URGENT' then total_price else 0 end) 
+            as URGENT,
+       sum(case when priority_code = '2-HIGH' then total_price else 0 end) 
+            as HIGH,
+       sum(case when priority_code = '3-MEDIUM' then total_price else 0 end) 
+            as MEDIUM,
+       sum(case when priority_code = '5-LOW' then total_price else 0 end) 
+            as LOW
+   from orders
+   group by 1
+) 
+
+select * from final
+
