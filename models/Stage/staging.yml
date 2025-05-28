@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_nations
+    description: Staging table for all the nations 
+    columns:
+      - name: nation_id
+        description: Primary key for the NATIONS table
+        tests:
+          - unique:
+              config:
+                store_failures: true
+                schema: dbt_test_failures
+                store_failures_as: view
+          - not_null:
+              config:
+                store_failures: true
+                schema: dbt_test_failures
+      - name: region_id
+        description: Foreign Key from REGION table
+        tests:
+          - relationships:
+              field: region_id
+              to: ref('stg_regions')
+              config:
+                store_failures: true
+  - name: stg_regions
+    description: '{{ doc("overview")}}'
+    columns:
+      - name: region_id
+        description: '{{ doc("pkey")}}'
+      - name: name
+        tests:
+          - accepted_values:
+              values:
+                - "AFRICA"
+                - "AMERICA"
+                - "ASIA"
+                - "EUROPE"
+                - "MIDDLE EAST"
+                - "NewRegion"
+      - name: name

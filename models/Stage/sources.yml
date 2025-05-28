@@ -1,0 +1,29 @@
+version: 2
+
+sources:
+  - name: src
+    database: sourcedb
+    description: Source Data from Oracle database through ADF
+    schema: mk_mall
+    tables:
+      - name: orders
+        description: The Orders processed in the OLTP databases 
+      - name: customers
+        columns:
+          - name: c_custkey
+            tests:
+              - unique
+              - not_null
+      - name: nations
+      - name: regions
+      - name: suppliers
+        freshness: 
+          error_after:
+            count: 14
+            period: minute
+          warn_after:
+            count: 3
+            period: minute
+        loaded_at_field: updated_time
+
+      
