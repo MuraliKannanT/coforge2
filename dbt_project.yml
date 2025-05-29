@@ -39,4 +39,4 @@ models:
   Analytics_Coforge:
     # Applies to all files under models/example/
     Stage:
-      materialized: table
+      materialized: table      

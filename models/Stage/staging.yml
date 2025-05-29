@@ -40,3 +40,8 @@ models:
                 - "MIDDLE EAST"
                 - "NewRegion"
       - name: name
+      
+seeds:
+  - name: supplier_names
+    config:
+      alias: real_suppliers

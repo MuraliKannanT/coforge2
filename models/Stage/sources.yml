@@ -6,6 +6,9 @@ sources:
     description: Source Data from Oracle database through ADF
     schema: mk_mall
     tables:
+      - name: lineitems
+      - name: parts
+      - name: partsupps
       - name: orders
         description: The Orders processed in the OLTP databases 
       - name: customers
