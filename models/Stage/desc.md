@@ -1,10 +1,11 @@
 {% docs pkey %}
-This is a primary key for this table
+This is a primary key for {{ this.name }}
 {% enddocs %}
 
 {% docs fkey %}
 This is a foreign key for this table
 {% enddocs %}
+
 
 {% docs overview %}
 # Monthly Recurring Revenue (MRR) playbook.

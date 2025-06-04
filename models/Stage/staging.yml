@@ -5,7 +5,7 @@ models:
     description: Staging table for all the nations 
     columns:
       - name: nation_id
-        description: Primary key for the NATIONS table
+        description:  '{{ doc("pkey")}}'
         tests:
           - unique:
               config:
