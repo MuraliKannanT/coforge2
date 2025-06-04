@@ -2,6 +2,10 @@
 This is a primary key for this table
 {% enddocs %}
 
+{% docs fkey %}
+This is a foreign key for this table
+{% enddocs %}
+
 {% docs overview %}
 # Monthly Recurring Revenue (MRR) playbook.
 This dbt project is a worked example to demonstrate how to model subscription
