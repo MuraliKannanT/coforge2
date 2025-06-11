@@ -39,4 +39,14 @@ models:
   Analytics_Coforge:
     # Applies to all files under models/example/
     Stage:
-      materialized: table
+      materialized: table  
+    Intermediate:
+      materialized: table    
+vars:
+  int_schema: dbt_int
+  dim_schema: mkt_marts 
+  no_of_customers: 2500
+  var_pno: "_015"  
+
+on-run-start: "grant usage on schema analytics.dbt_test_failures to role reporter" 
+on-run-end: "grant usage on schema analytics.dbt_mkt to role reporter" 

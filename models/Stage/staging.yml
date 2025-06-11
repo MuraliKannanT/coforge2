@@ -1,7 +1,11 @@
 version: 2
 
 models:
+  - name: stg_customers
   - name: stg_nations
+    config:
+      group: apple
+      access: private
     description: Staging table for all the nations 
     columns:
       - name: nation_id
@@ -25,6 +29,9 @@ models:
               config:
                 store_failures: true
   - name: stg_regions
+    config:
+      group: orange
+      access: public
     description: '{{ doc("overview")}}'
     columns:
       - name: region_id
@@ -38,5 +45,17 @@ models:
                 - "ASIA"
                 - "EUROPE"
                 - "MIDDLE EAST"
-                - "NewRegion"
-      - name: name
+          - dbt_utils.not_accepted_values:
+              values: ["NewRegion", "OldRegion"]
+groups:
+  - name: apple
+    owner: 
+      name: MKT
+  - name: orange
+    owner: 
+      name: Murali
+
+seeds:
+  - name: supplier_names
+    config:
+      alias: real_suppliers
