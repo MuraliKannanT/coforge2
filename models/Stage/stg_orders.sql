@@ -1,7 +1,7 @@
 with source as (
 
     select * from {{ source('src', 'orders') }}
-
+    where o_custkey <= {{ var("no_of_customers")}}
 ),
 
 changed as (

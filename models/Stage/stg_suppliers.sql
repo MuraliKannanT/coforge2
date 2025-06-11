@@ -10,7 +10,6 @@
         s_phone as phone_number,
         {{ joincols('s_name','s_address')}} as nameaddr,
         s_comment as comment,
-
         -- amounts
         s_acctbal as account_balance,
         {{ cents_to_dollars('s_acctbal',4)}} as balcents,
