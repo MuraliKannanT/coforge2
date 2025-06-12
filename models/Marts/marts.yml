@@ -15,6 +15,7 @@ models:
         data_type: date
         constraints:
           - type: primary_key
+            warn_unenforced: false
       - name: gross_amount
         data_type: numeric(9,2)
       - name: discount_amount

@@ -20,13 +20,14 @@ sources:
       - name: nations
       - name: regions
       - name: suppliers
-        freshness: 
-          error_after:
-            count: 14
-            period: minute
-          warn_after:
-            count: 3
-            period: minute
+        config:
+          freshness: 
+            error_after:
+              count: 14
+              period: minute
+            warn_after:
+              count: 3
+              period: minute
         loaded_at_field: updated_time
 
       

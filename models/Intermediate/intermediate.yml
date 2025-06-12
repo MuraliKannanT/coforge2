@@ -5,9 +5,3 @@ models:
     config:
       group: apple
       access: private
-  - name: customer_orders
-    columns:
-      - name: customer_id
-        description: Primary key for the Customer_Orders table
-        tests:
-          - dbt_constraints.primary_key
