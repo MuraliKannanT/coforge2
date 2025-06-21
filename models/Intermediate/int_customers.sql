@@ -1,6 +1,7 @@
+{#
 {{ config(pre_hook = "copy into ANALYTICS.DBT_MKT.stg_dealership from @ANALYTICS.DBT_MKT.s3temp/dealership.dat file_format = ANALYTICS.DBT_MKT.ff_csv_dq force = true
 ", post_hook = "copy into @~ from ANALYTICS.DBT_MKT.stg_dealership file_format = ANALYTICS.DBT_MKT.ff_csv_dq overwrite=true")}}
-
+#}
 with customer as (
 select * from {{ ref('stg_customers') }}
 ),

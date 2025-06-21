@@ -3,5 +3,4 @@ version: 2
 models:
   - name: int_customers
     config:
-      group: apple
-      access: private
+      access: public

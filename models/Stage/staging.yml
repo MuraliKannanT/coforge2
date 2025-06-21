@@ -5,7 +5,7 @@ models:
   - name: stg_nations
     config:
       group: apple
-      access: private
+      access: public
     description: Staging table for all the nations 
     columns:
       - name: nation_id

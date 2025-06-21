@@ -48,5 +48,5 @@ vars:
   no_of_customers: 2500
   var_pno: "_015"  
 
-on-run-start: "grant usage on schema analytics.dbt_test_failures to role reporter" 
-on-run-end: "grant usage on schema analytics.dbt_mkt to role reporter" 
+# on-run-start: "grant usage on schema analytics.dbt_test_failures to role reporter" 
+# on-run-end: "grant usage on schema analytics.dbt_mkt to role reporter" 
