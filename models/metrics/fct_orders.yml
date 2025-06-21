@@ -6,10 +6,10 @@ semantic_models:
       Order fact table. This table’s grain is one row per order.
     model: ref('fct_orders')
     entities: 
-      - name: order_id
+      - name: order_key
         type: primary
       - name: customer
-        expr: customer_id
+        expr: customer_key
         type: foreign
     dimensions:   
       - name: order_date
@@ -20,16 +20,16 @@ semantic_models:
       - name: order_total
         description: The total amount for each order including taxes.
         agg: sum
-        expr: amount
+        expr: gross_item_sales_amount
       - name: order_count
         expr: 1
         agg: sum
       - name: customers_with_orders
         description: Distinct count of customers placing orders
         agg: count_distinct
-        expr: customer_id
+        expr: customer_key
       - name: order_value_p99 ## The 99th percentile order value
-        expr: amount
+        expr: gross_item_sales_amount
         agg: percentile
         agg_params:
           percentile: 0.99
@@ -59,7 +59,7 @@ metrics:
       measure:
         name: order_count
     filter: |
-      {{ Metric('order_total', group_by=['order_id']) }} >=  20
+      {{ Metric('order_total', group_by=['order_key']) }} >=  20
   # Ratio type metric
   - name: "avg_order_value"
     label: "avg_order_value"

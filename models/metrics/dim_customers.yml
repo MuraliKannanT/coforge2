@@ -42,3 +42,4 @@ metrics:
     type_params:
       measure:
         name: customers
+        
