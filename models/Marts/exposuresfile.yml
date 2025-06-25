@@ -1,0 +1,20 @@
+version: 2
+
+exposures:
+  - name: weekly_metrics
+    label: Orders by the Week
+    type: dashboard
+    maturity: high
+    url: https://docs.getdbt.com/docs/build/exposures
+    description: >
+      Did someone say "exponential growth"?
+
+    depends_on:
+      - ref('fct_orders')
+      - ref('dim_customers')
+      - source('src', 'customers')
+      - metric('customers_with_orders')
+
+    owner:
+      name: Murali Kannan
+      email: murali@gmail.com
