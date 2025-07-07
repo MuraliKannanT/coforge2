@@ -1,8 +1,10 @@
 version: 2
 
 models:
+  - name: stg_customers
+    description: '{{ doc("tname")}}'
   - name: stg_nations
-    description: Staging table for all the nations 
+    description: Staging table for '{{ this }}'
     columns:
       - name: nation_id
         description: Primary key for the NATIONS table

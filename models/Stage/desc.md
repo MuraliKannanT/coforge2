@@ -14,3 +14,8 @@ as well as the repo for this project \here.**
 ...
 
 {% enddocs %}
+
+
+{% docs tname %}
+This is a name of the table {{this}} 
+{% enddocs %}
