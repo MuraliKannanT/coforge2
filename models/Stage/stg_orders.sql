@@ -1,7 +1,7 @@
 with source as (
 
     select * from {{ source('src', 'orders') }}
-
+    where o_custkey <= {{ var("no_of_customers")}}
 ),
 
 changed as (
@@ -18,6 +18,8 @@ changed as (
 
         -- numbers
         o_totalprice as total_price,
+        {{ dol_eur('o_totalprice')}} as price_euros,
+        {{ dol_inr('o_totalprice')}} as price_rupees,
 
         -- statuses
         o_orderstatus as status_code,

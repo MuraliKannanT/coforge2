@@ -1,3 +1,5 @@
+{{  config(alias =  this.name + var('var_pno') ) }}
+
 with
     customer as (
         select
@@ -9,7 +11,8 @@ with
             c_acctbal as account_balance,
             c_mktsegment as market_segment,
             c_comment as comment
-        from {{ source("src", "customers") }}
+            from {{ source("src", "customers") }}
+        where c_custkey <= {{ var("no_of_customers",2000)}}
     )
 
 select *
