@@ -3,7 +3,7 @@
 ", post_hook = "copy into @~ from ANALYTICS.DBT_MKT.stg_dealership file_format = ANALYTICS.DBT_MKT.ff_csv_dq overwrite=true")}}
 #}
 with customer as (
-select * from {{ ref('Analytics_TCS','stg_customers') }}
+select * from {{ ref('stg_customers') }}
 ),
 
 nation as (
